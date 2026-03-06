@@ -154,7 +154,7 @@ class LibraryManagementSystem:
         def fetch_book_titles():
             book_titles = []
             try:
-                conn=mysql.connector.connect(host="localhost",username="root",password="munu@123",database="library_management_system")
+                conn=mysql.connector.connect(host="localhost",username="root",password="Your password",database="library_management_system")
                 my_cursor=conn.cursor()
                 my_cursor.execute("select BookTitle from books")
                 rows=my_cursor.fetchall()
@@ -171,7 +171,7 @@ class LibraryManagementSystem:
         def SelectBook(events=""):
             value=str(listBox.get(listBox.curselection()))
             try:
-                conn=mysql.connector.connect(host="localhost",username="root",password="munu@123",database="library_management_system")
+                conn=mysql.connector.connect(host="localhost",username="root",password="Your password",database="library_management_system")
                 my_cursor=conn.cursor()
                 query="select * from books where BookTitle=%s"
                 value_tuple=(value,)
@@ -301,7 +301,7 @@ class LibraryManagementSystem:
 
 #==================================Add Data==================================
     def add_data(self):
-        conn=mysql.connector.connect(host="localhost",username="root",password="munu@123",database="library_management_system")
+        conn=mysql.connector.connect(host="localhost",username="root",password="Your password",database="library_management_system")
         my_cursor=conn.cursor()
         my_cursor.execute("insert into library values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
                           (self.member_var.get(),self.prn_var.get(),self.id_var.get(),self.firstname_var.get(),self.lastname_var.get(),
@@ -318,7 +318,7 @@ class LibraryManagementSystem:
         if self.prn_var.get()=="" or self.prn_var.get()=="":
             messagebox.showerror("Error","Please enter PRN No to delete member")
         else:
-            conn=mysql.connector.connect(host="localhost",username="root",password="munu@123",database="library_management_system")
+            conn=mysql.connector.connect(host="localhost",username="root",password="Your password",database="library_management_system")
             my_cursor=conn.cursor()
             my_cursor.execute("update library set Member=%s,ID=%s,FirstName=%s,LastName=%s,Address1=%s,Address2=%s,Postcode=%s,Mobile=%s,Bookid=%s,Booktitle=%s,Author=%s,Dateborrowed=%s,Datedue=%s,Daysonbook=%s,Latereturnfine=%s,Dateoverdue=%s,Actualprice=%s where PRN_NO=%s",
                               (self.member_var.get(),self.id_var.get(),self.firstname_var.get(),self.lastname_var.get(),
@@ -332,7 +332,7 @@ class LibraryManagementSystem:
        
 #==================================Fetch Data================================== 
     def fatch_data(self):
-        conn=mysql.connector.connect(host="localhost",username="root",password="munu@123",database="library_management_system")
+        conn=mysql.connector.connect(host="localhost",username="root",password="Your password",database="library_management_system")
         my_cursor=conn.cursor()
         my_cursor.execute("select * from library")
         rows=my_cursor.fetchall()
